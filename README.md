@@ -1,135 +1,132 @@
 # E-commerce Website Sales and Performance Analysis
 
-**Prepared by:** [Your Name]  
-**Date:** [Today’s Date]
-
-## Executive Summary
-
-This project analyzes the sales and performance of an e-commerce website using Power BI and MySQL. Key insights and visualizations were created to help stakeholders understand customer behavior, product demand, and operational efficiencies, guiding strategic decision-making.
+**Prepared by:** Yousef Emad  
+**Date:** 17/11/2024  
 
 ---
 
-## Project Objectives and Scope
+## 📝 Executive Summary
 
-The analysis aimed to reveal trends and key performance indicators (KPIs) relevant to stakeholders, including data analysts, marketing, and operations teams. Key objectives included:
-
-1. Tracking sales performance through KPIs such as total revenue, average order value, and customer purchase frequency.
-2. Analyzing customer demographics and segmentation to support targeted marketing.
-3. Identifying product demand patterns by category to optimize inventory management.
-4. Assessing operational efficiency metrics, such as delivery times and freight costs, to improve service delivery.
-
-The dataset spans approximately 2-3 years, focusing on general trends across various seasons.
+This report examines the e-commerce performance of a company headquartered in São Paulo, Brazil, over the past 2–3 years. The primary objectives were to analyze sales trends, understand customer demographics, and identify operational efficiencies. Using Power BI and MySQL Workbench, the findings offer insights into customer behavior, product demand, and geographical sales distribution to guide strategic decision-making for business growth.
 
 ---
 
-## Data Sources and Preparation
+## 🎯 Project Objectives and Scope
 
-### Data Sources:
-- **Sales and Customer Databases**: Order history, product categories, customer profiles, and payment types.
-- **Web Analytics**: Customer engagement and website traffic data.
+### Objectives:
+- Tracking sales performance through KPIs like total revenue, average order value, and customer purchase frequency.
+- Analyzing customer demographics and segmentation to inform targeted marketing.
+- Identifying product demand patterns by category to support inventory management.
+- Assessing operational efficiency metrics, like delivery times and freight costs, to improve service delivery.
 
-### Data Preparation:
-1. **Standardizing Location Names**: Created a lookup table for state abbreviations and full names using ChatGPT, enhancing Power BI maps via VLOOKUP.
-2. **Categorizing Unclassified Products**: Labeled uncategorized products as "Others" to ensure completeness.
-3. **Removing Invalid Payment Types**: Excluded payment records from canceled orders to maintain data quality.
-4. **Correcting Typos and Translations**: Fixed inconsistencies such as untranslated terms.
-5. **Eliminating Duplicates**: Streamlined datasets by removing redundant entries.
-6. **Calculating State Distances**: Built a distance table using ChatGPT and MySQL for geographic insights.
-7. **Transition to MySQL**: Improved processing efficiency for large datasets, enabling real-time updates in Power BI.
+### Scope:
+The data covers approximately 2–3 years, focusing on general trends across various seasons without specific promotional events.
 
 ---
 
-## Key Metrics and Analytical Approach
+## 📂 Data Sources
+
+The dataset used for this project was sourced from the Brazilian E-commerce Public Dataset available on Kaggle. It features anonymized data from 100,000 orders made between 2016 and 2018 across various marketplaces in Brazil. This rich dataset includes:
+- Order status, pricing, and payment details.
+- Freight performance and customer locations.
+- Product attributes and customer reviews.
+
+---
+
+## 📂 Data Preparation
+
+### 1. **Data Cleaning and Transformation in Excel**
+- **Handling Missing Values:** Missing product names were replaced with "Other."
+- **Translation of Product Categories:** Product categories in Portuguese were translated to English using a custom table.
+  - Formula used:  
+    `=VLOOKUP(B2, product_category_name_translati!$A$2:$B$100, 2, FALSE)`
+- **Removing Duplicates and Invalid Records:** Duplicate rows and invalid records were removed.
+
+### 2. **Transition to SQL for Large-Scale Data Processing**
+- **Standardizing State Names:** A `StateAbbreviations` table mapped abbreviations (e.g., "SP") to full names.
+- **Delivery Performance Analysis:** Calculated the difference between actual and estimated delivery dates.
+- **Customer Segmentation:** Distinguished new vs. returning customers based on order history.
+
+### 3. **Overcoming Data Import Challenges with CSV Lint**
+The CSV Lint plugin for Notepad++ reduced data import times from hours to seconds, optimizing the workflow for large datasets.
+
+---
+
+## 📊 Key Metrics and Analytical Approach
 
 ### Key Metrics:
-- **Customer Lifetime Value (CLV)**: Evaluating long-term customer profitability.
-- **Average Purchase Frequency**: Gauging customer return rates.
-- **Average Delivery Time**: Assessing delivery efficiency.
-- **Customer Count, Seller Count, and Total Order Value**: Providing a comprehensive view of business volume.
+- **Customer Lifetime Value (CLV):** Identifying long-term customer value.
+- **Average Purchase Frequency:** Gauging customer return rates.
+- **Average Delivery Time:** Assessing delivery efficiency.
+- **Business Volume Metrics:** Customer count, seller count, and total order value.
 
 ### Analytical Approach:
-- **Time-Series Analysis**: Identifying sales trends and peak periods.
-- **Customer Segmentation**: Based on location and purchasing habits.
-- **Geographical Analysis**: Assessing how distance from São Paulo impacts sales, freight costs, and delivery times.
+- **Time-Series Analysis:** To identify sales trends and peak periods.
+- **Customer Segmentation:** Based on location and purchasing habits.
+- **Geographical Analysis:** Examining the impact of distance from São Paulo on sales, freight costs, and delivery times.
 
 ---
 
-## Dashboard Pages and Descriptions
+## 📈 Visualizations and Insights
 
 ### 1. **Sales Performance Analysis**
-   - **Visuals Included:**
-     - Monthly revenue trends over the 2-3 year period.
-     - Sales distribution by product category.
-     - Average revenue per customer.
-   - **Insights:**
-     - Seasonal sales peaks were identified, averaging $136 per customer.
-     - "Beauty and Health" emerged as the top-selling category.
+- **Visuals:** Monthly revenue trends, sales by product category, average revenue per customer.
+- **Insights:**
+  - Seasonal sales peaks were identified, averaging $136 per customer.
+  - "Beauty and Health" emerged as the top-selling category.
 
 ### 2. **Geographical Analysis**
-   - **Visuals Included:**
-     - Total sales and shipping costs by state.
-     - Average shipping cost by distance from São Paulo.
-   - **Insights:**
-     - São Paulo dominated in both sales and seller presence.
-     - Shipping costs increase proportionally with distance, highlighting potential logistical inefficiencies.
+- **Visuals:** Total sales and shipping costs by state, average shipping cost by distance.
+- **Insights:**
+  - São Paulo dominated in sales and seller presence.
+  - Shipping costs increase proportionally with distance.
 
 ### 3. **Order Lifecycle and Delivery Analysis**
-   - **Visuals Included:**
-     - On-time vs. late deliveries.
-     - Average delivery times by state and hour.
-     - Delivery performance benchmarks.
-   - **Insights:**
-     - 92.13% of orders were delivered on time.
-     - Delivery delays were more frequent in states farther from São Paulo.
+- **Visuals:** On-time vs. late deliveries, average delivery times by state.
+- **Insights:**
+  - 92.13% of orders were delivered on time.
+  - Delivery delays were more frequent in states farther from São Paulo.
 
 ### 4. **Customer Insights**
-   - **Visuals Included:**
-     - Distribution of new vs. returning customers.
-     - Payment method preferences.
-     - Customer lifetime value (CLV) and purchase frequency.
-   - **Insights:**
-     - 93.62% of customers were new, indicating a need for better retention strategies.
-     - Credit cards were the most commonly used payment method.
+- **Visuals:** New vs. returning customers, payment preferences, customer lifetime value (CLV).
+- **Insights:**
+  - 93.62% of customers were new, indicating a need for better retention strategies.
+  - Credit cards were the most used payment method.
 
 ### 5. **Seller Insights**
-   - **Visuals Included:**
-     - Sales performance by seller ID and state.
-     - Top-performing sellers by total sales value.
-   - **Insights:**
-     - Most sellers were concentrated in São Paulo and nearby states.
-     - A small percentage of sellers accounted for a significant portion of total sales.
+- **Visuals:** Sales performance by seller ID, top-performing sellers.
+- **Insights:**
+  - Sellers were concentrated in São Paulo and nearby states.
+  - A small percentage of sellers contributed to significant sales.
 
 ### 6. **Product Demand Analysis**
-   - **Visuals Included:**
-     - Sales by product category.
-     - Contribution of each category to overall revenue.
-   - **Insights:**
-     - "Beauty and Health" was the leading category, followed by "Bed, Bath & Table."
-     - Clear patterns emerged, indicating high demand for personal care and home essentials.
+- **Visuals:** Sales by product category, category contribution to revenue.
+- **Insights:**
+  - High demand for "Beauty and Health" and "Bed, Bath & Table."
 
 ---
 
-## Recommendations
+## ✅ Conclusion and Recommendations
 
-- **Target Marketing**: Focus on the "Beauty and Health" category during peak periods.
-- **Optimize Logistics**: Consider regional warehouses to reduce delivery times and costs.
-- **Customer Retention**: Implement loyalty programs and personalized offers.
-- **Credit Card Promotions**: Increase sales through credit card-based rewards or discounts.
-
----
-
-## How to Navigate the Dashboard
-
-Each section in this `README.md` corresponds to a screenshot in the repository. Refer to the screenshots for detailed visuals and supporting data analysis.
+### Recommendations:
+1. **Targeted Inventory and Marketing:** Focus on high-demand categories during peak periods.
+2. **Credit Card Promotions:** Offer rewards for credit card users.
+3. **Geographic Expansion:** Consider regional warehouses to reduce delivery times and costs.
+4. **Customer Retention Strategies:** Launch loyalty programs and personalized marketing.
+5. **Optimized Delivery Scheduling:** Expand capacity during peak order hours.
 
 ---
 
-## Appendix
+## 📂 Appendix
 
-- **Data Sources**: Sales, customer databases, and web analytics.
-- **Data Preparation**: Standardization, categorization, and distance calculations using MySQL and Power BI.
-- **Tools Used**: Power BI for visualization, MySQL for data processing.
+- **DAX Calculations:** Includes formulas for CLV and average revenue per customer.
+- **Data Transformation Documentation:** Details on translations, SQL queries, and cleaning.
+- **Additional Visualizations:** Charts for geographical sales, payment methods, and cart abandonment.
 
 ---
 
-This project demonstrates a data-driven approach to e-commerce performance analysis, providing actionable insights for strategic decision-making.
+## 📧 Contact
+
+For more information:  
+**Email:** Yousef Emad ([Yousefe2152@gmail.com](mailto:Yousefe2152@gmail.com))  
+**LinkedIn:** [Yousef Emad](https://www.linkedin.com/in/yousef-emad-abdelrhman-elkhoudairy)
