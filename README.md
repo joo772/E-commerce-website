@@ -45,61 +45,74 @@ Below is an image representing the data schema, showing how the different tables
 - **Translation of Product Categories:** Product categories in Portuguese were translated to English using a custom table.
   - Formula used:  
     `=VLOOKUP(B2, product_category_name_translati!$A$2:$B$100, 2, FALSE)`
+![SQL Image 1](Dashboard/sql1.png)
 - 1.1**Removing Duplicates and Invalid Records:** Duplicate rows and invalid records were removed.
-
+![SQL Image 2](Dashboard/sql2.png)
 ---
 ### 2. **Transition to SQL for Large-Scale Data Processing**
 - **Standardizing State Names:** A `StateAbbreviations` table mapped abbreviations (e.g., "SP") to full names.
 - **Delivery Performance Analysis:** Calculated the difference between actual and estimated delivery dates.
 - **Customer Segmentation:** Distinguished new vs. returning customers based on order history.
-
+![SQL Image 3](Dashboard/sql3.png)
 ---
 ### 3. **Overcoming Data Import Challenges with CSV Lint**
 The CSV Lint plugin for Notepad++ reduced data import times from hours to seconds, optimizing the workflow for large datasets.
-
+![SQL Image 4](Dashboard/sql4.png)
 ---
 
 ## 📈 Visualizations and Insights
 
 ### 1. **Sales Performance Analysis**
-![Dashboard Image 1](Dashboard/1.jpg)
+
 - **Visuals:** Monthly revenue trends, sales by product category, average revenue per customer.
 - **Insights:**
   - Seasonal sales peaks were identified, averaging $136 per customer.
   - "Beauty and Health" emerged as the top-selling category.
+
+![Dashboard Image 1](Dashboard/1.jpg)
 ---
 ### 2. **Geographical Analysis**
-![Dashboard Image 2](Dashboard/2.jpg)
+
 - **Visuals:** Total sales and shipping costs by state, average shipping cost by distance.
 - **Insights:**
   - São Paulo dominated in sales and seller presence.
   - Shipping costs increase proportionally with distance.
+
+![Dashboard Image 2](Dashboard/2.jpg)
 ---
 ### 3. **Order Lifecycle and Delivery Analysis**
-![Dashboard Image 3](Dashboard/3.jpg)
+
 - **Visuals:** On-time vs. late deliveries, average delivery times by state.
 - **Insights:**
   - 92.13% of orders were delivered on time.
   - Delivery delays were more frequent in states farther from São Paulo.
+
+![Dashboard Image 3](Dashboard/3.jpg)
 ---
 ### 4. **Customer Insights**
-![Dashboard Image 4](Dashboard/4.jpg)
+
 - **Visuals:** New vs. returning customers, payment preferences, customer lifetime value (CLV).
 - **Insights:**
   - 93.62% of customers were new, indicating a need for better retention strategies.
   - Credit cards were the most used payment method.
+
+![Dashboard Image 4](Dashboard/4.jpg)
 ---
 ### 5. **Seller Insights**
-![Dashboard Image 5](Dashboard/5.jpg)
+
 - **Visuals:** Sales performance by seller ID, top-performing sellers.
 - **Insights:**
   - Sellers were concentrated in São Paulo and nearby states.
   - A small percentage of sellers contributed to significant sales.
+
+![Dashboard Image 5](Dashboard/5.jpg)
 ---
 ### 6. **Product Demand Analysis**
-![Dashboard Image 6](Dashboard/6.jpg)
+
 - **Visuals:** Sales by product category, category contribution to revenue.
 -  High demand for "Beauty and Health" and "Bed, Bath & Table."
+
+![Dashboard Image 6](Dashboard/6.jpg)
 
 ---
 
